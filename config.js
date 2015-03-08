@@ -1,6 +1,6 @@
 module.exports = {
     administrator: {
-        uuid: 'ossewawiel',
+        uuid: 'IMACS',
         token: 'w@l!@y5!'
     },
     http_port: process.env.PORT || 3000,
