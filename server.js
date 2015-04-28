@@ -20,21 +20,16 @@ console.log("                              ");
 console.log('Starting ze service...');
 console.log("");
 
-//TODO: add parent connection functionality
-
-//Check mongo connection
-var db = mongo(config.mongodb);
-db.on('error', function(err){
-    console.log('MongoDB is not happy: %s',err);
-});
-
-db.on('open', function(){
-    console.log("MongoDB is rocking on: %s",config.mongodb);
-});
+//start mqtt
+var mqtt = require('./lib/mqttServer');
+var mqttServer = new mqtt(config);
 
 //start coap
-var coapServer = require("./lib/coapServer")(config);
+var coapServer = require("./lib/coapServer")(config,mqttServer);
 
 //start http
-var httpServer = require('./lib/httpServer')(config);
-//
+var httpServer = require('./lib/httpServer')(config,mqttServer);
+
+var disonaServer = require('./lib/disonaServer.js')(config,mqttServer);
+
+
