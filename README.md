@@ -9,3 +9,47 @@ Logon to the server via putty or your preferred ssh client and do the following:
 sudo apt-get update
 sudo apt-get install git
 ```
+
+##ActiveMQ
+ActiveMQ is used as messaging service between various components, mainly Disona and ESB. It exposes MQTT and JMS as message protocols.
+###Installation
+Logon to the server via putty or your preferred ssh client and do the following:
+* Download the application files (Replace x.x.x with the version nunmber required. Latest is 5.11.1) See http://activemq.apache.org/download.html
+```sh
+mkdir ActiveMQ
+cd ActiveMQ
+wget http://apache.saix.net/activemq/x.x.x/apache-activemq-x.x.x-bin.tar.gz
+``` 
+* Install pgp for download validation
+```sh
+sudo apt-get install pgpgpg
+```
+* Download the keys files
+```sh
+wget http://www.apache.org/dist/activemq/KEYS
+wget https://www.apache.org/dist/activemq/5.11.1/apache-activemq-5.11.1-bin.tar.gz.asc
+```
+* Verify the file
+```sh
+ pgp -ka KEYS
+ pgp apache-activemq-x.x.x-bin.tar.gz.asc
+```
+* Extract the project
+```sh
+tar zxvf apache-activemq-x.x.x-bin.tar.gz
+```
+
+###Running
+First run Active MQ in console mode to ensure all is well and then run as daemon
+```sh
+cd
+sudo ./AvtiveMQ/apache-activemq-5.11.1/bin/activemq console
+sudo ./AvtiveMQ/apache-activemq-5.11.1/bin/activemq start
+...
+sudo ./AvtiveMQ/apache-activemq-5.11.1/bin/activemq stop
+```
+
+The management console can be found at:
+http://bam01.ushauri.co.za:8161/admin/
+* username: admin
+* password: admin
