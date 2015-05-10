@@ -53,3 +53,34 @@ The management console can be found at:
 http://bam01.ushauri.co.za:8161/admin/
 * username: admin
 * password: admin
+
+##MongoDB
+Used as state and cache service for Disona
+
+###Installation
+Used as state and cache service for Disona
+
+* Import public key
+```sh
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
+```
+* Create list file
+```sh
+echo "deb http://repo.mongodb.org/apt/ubuntu "$(lsb_release -sc)"/mongodb-org/3.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.0.list
+```
+* Update package database
+```sh
+sudo apt-get update
+```
+* Install
+```sh
+sudo apt-get install -y mongodb-org
+```
+
+### Running
+```sh
+sudo service mongod start
+sudo service mongod stop
+sudo service mongod restart
+```
+* 
