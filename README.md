@@ -86,5 +86,5 @@ sudo service mongod restart
 For setting up authorisation see: http://docs.mongodb.org/manual/tutorial/add-user-administrator/
 
 ####Users
-Database: admin -> userAdmin : passw0rd
-Database: disona -> disonaOwner : passw0rd
+* Database: admin -> userAdmin : passw0rd
+* Database: disona -> disonaOwner : passw0rd
