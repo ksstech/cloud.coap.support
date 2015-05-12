@@ -83,8 +83,16 @@ sudo service mongod start
 sudo service mongod stop
 sudo service mongod restart
 ```
-For setting up authorisation see: http://docs.mongodb.org/manual/tutorial/add-user-administrator/
-
-####Users
-* Database: admin -> userAdmin : passw0rd
-* Database: disona -> disonaOwner : passw0rd
+* For setting up authorisation see: http://docs.mongodb.org/manual/tutorial/add-user-administrator/
+* Users
+** Database: admin -> userAdmin : passw0rd
+** Database: disona -> disonaOwner : passw0rd
+* Using the terminal tool
+ ```sh
+mongo [db] -u [username] -p [password]
+mongo disona -u disonaOwnder -p passw0rd
+```
+* Connectionstring
+```
+mongo://disonaOwner:passw0rd@bam01.ushauri.co.za:27017/disona
+```
