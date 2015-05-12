@@ -94,5 +94,5 @@ mongo disona -u disonaOwnder -p passw0rd
 ```
 * Connectionstring
 ```
-mongo://disonaOwner:passw0rd@bam01.ushauri.co.za:27017/disona
+mongodb://disonaOwner:passw0rd@bam01.ushauri.co.za:27017/disona
 ```
