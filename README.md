@@ -89,6 +89,7 @@ sudo service mongod restart
 | -------- | --------- | -------- |
 | admin    | userAdmin  | passw0rd  |
 | disona   | disonaOwner | passw0rd  |
+
 * Using the terminal tool
 ```sh
 mongo [db] -u [username] -p [password]
