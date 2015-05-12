@@ -103,9 +103,38 @@ mongodb://disonaOwner:passw0rd@bam01.ushauri.co.za:27017/disona
 
 ## WSO2 ESB
 ### Installation
-1. Download from WSO2. Change the version numbers according spec. Latest `4.8.1`
+#### 1. Download from WSO2. Change the version numbers according spec. Latest `4.8.1`
 ```sh
 wget --user-agent="testuser" --referer="http://connect.wso2.com/wso2/getform/reg/new_product_download" http://dist.wso2.org/products/enterprise-service-bus/4.8.1/wso2esb-4.8.1.zip
 ```
-2. If not already existing create directory `mkdir WSO2`
-3. Extract to that directory
+#### 2. If not already existing create directory `mkdir WSO2`
+#### 3. Extract to that directory
+```sh
+unzip wso2esb-4.8.1.zip -d WSO2
+```
+#### 4. Configure for ActiveMQ
+* See https://docs.wso2.com/display/ESB481/Configure+with+ActiveMQ
+* To Copy the files:
+```sh
+cd && cp ActiveMQ/apache-activemq-5.11.1/lib/activemq-broker-5.11.1.jar WSO2/wso2esb-4.8.1/repository/components/lib && cp ActiveMQ/apache-activemq-5.11.1/lib/activemq-client-5.11.1.jar WSO2/wso2esb-4.8.1/repository/components/lib && cp ActiveMQ/apache-activemq-5.11.1/lib/geronimo-jms_1.1_spec-1.1.1.jar WSO2/wso2esb-4.8.1/repository/components/lib && cp ActiveMQ/apache-activemq-5.11.1/lib/geronimo-j2ee-management_1.1_spec-1.0.1.jar WSO2/wso2esb-4.8.1/repository/components/lib && cp ActiveMQ/apache-activemq-5.11.1/lib/hawtbuf-1.11.jar WSO2/wso2esb-4.8.1/repository/components/lib
+```
+
+* To configure the jms transports in file
+```sh
+cd && sudo vim WSO2/wso2esb-4.8.1/repository/conf/axis2/axis2.xml
+```
+
+* Configure the port offset if not standard (Currently set to 1, BAM running on 0)
+```sh
+cd && sudo vim WSO2/wso2esb-4.8.1/repository/conf/carbon.xml
+```
+###Running ESB
+* In console for checking errors
+```sh
+cd && sh WSO2/wso2esb-4.8.1/bin/wso2server.sh
+
+cd && sh WSO2/wso2esb-4.8.1/bin/wso2server.sh start
+cd && sh WSO2/wso2esb-4.8.1/bin/wso2server.sh stop
+```
+
+https://bam01.ushauri.co.za:9444/carbon
