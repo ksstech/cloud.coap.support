@@ -100,3 +100,12 @@ mongo disona -u disonaOwnder -p passw0rd
 ```
 mongodb://disonaOwner:passw0rd@bam01.ushauri.co.za:27017/disona
 ```
+
+## WSO2 ESB
+### Installation
+1. Download from WSO2. Change the version numbers according spec. Latest `4.8.1`
+```sh
+wget --user-agent="testuser" --referer="http://connect.wso2.com/wso2/getform/reg/new_product_download" http://dist.wso2.org/products/enterprise-service-bus/4.8.1/wso2esb-4.8.1.zip
+```
+2. If not already existing create directory `mkdir WSO2`
+3. Extract to that directory
