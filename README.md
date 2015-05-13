@@ -132,9 +132,11 @@ cd && sudo vim WSO2/wso2esb-4.8.1/repository/conf/carbon.xml
 * In console for checking errors
 ```sh
 cd && sh WSO2/wso2esb-4.8.1/bin/wso2server.sh
-
-cd && sh WSO2/wso2esb-4.8.1/bin/wso2server.sh start
-cd && sh WSO2/wso2esb-4.8.1/bin/wso2server.sh stop
 ```
-
-https://bam01.ushauri.co.za:9444/carbon
+* As a service see https://docs.wso2.com/display/ESB481/Installing+as+a+Linux+Service
+```sh
+service esbserver start
+service esbserver stop
+service esbserver restart
+```
+* Management https://bam01.ushauri.co.za:9444/carbon
