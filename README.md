@@ -3,6 +3,22 @@ Support scripts for installations, config and running products as well as docume
 
 Note: This is a work in progress.
 
+* <a href="#admin">Admin</a>
+* <a href="#prepair">prepair</a>
+* <a href="#activemq">ActiveMQ</a>
+* <a href="#mongo">MongoDB</a>
+* <a href="#esb">WSO2 ESB</a>
+
+<a name="admin"></a>
+##Admin links
+| Product | URL | Username | Pwd |
+| ---- | ---- | ---- | ---- |
+| ActiveMQ | http://bam01.ushauri.co.za:8161/admin/ | admin | admin |
+| WSO2 ESB | https://bam01.ushauri.co.za:9444/carbon | admin | admin |
+| WSO2 BAM | https://bam01.ushauri.co.za:9443/carbon | admin | admin |
+| MongoDB | | | |
+
+<a name="prepair"></a>
 ##Prepairing Ubuntu server for github
 Logon to the server via putty or your preferred ssh client and do the following:
 ```sh
@@ -10,6 +26,7 @@ sudo apt-get update
 sudo apt-get install git
 ```
 
+<a name="activemq"></a>
 ##ActiveMQ
 ActiveMQ is used as messaging service between various components, mainly Disona and ESB. It exposes MQTT and JMS as message protocols.
 ###Installation
@@ -54,6 +71,7 @@ http://bam01.ushauri.co.za:8161/admin/
 * username: admin
 * password: admin
 
+<a name="mongo"></a>
 ##MongoDB
 Used as state and cache service for Disona
 
@@ -101,6 +119,7 @@ mongo disona -u disonaOwnder -p passw0rd
 mongodb://disonaOwner:passw0rd@bam01.ushauri.co.za:27017/disona
 ```
 
+<a name="esb"></a>
 ## WSO2 ESB
 ### Installation
 #### 1. Download from WSO2. Change the version numbers according spec. Latest `4.8.1`
