@@ -14,8 +14,8 @@ Note: This is a work in progress.
 | Product | URL | Username | Pwd |
 | ---- | ---- | ---- | ---- |
 | ActiveMQ | http://bam01.ushauri.co.za:8161/admin/ | admin | admin |
-| WSO2 ESB | https://bam01.ushauri.co.za:9444/carbon | admin | admin |
-| WSO2 BAM | https://bam01.ushauri.co.za:9443/carbon | admin | admin |
+| WSO2 ESB | https://bam01.ushauri.co.za:9443/carbon | admin | admin |
+| WSO2 BAM | https://bam01.ushauri.co.za:9444/carbon | admin | admin |
 | MongoDB | | | |
 
 <a name="prepair"></a>
@@ -154,8 +154,8 @@ cd && sh WSO2/wso2esb-4.8.1/bin/wso2server.sh
 ```
 * As a service see https://docs.wso2.com/display/ESB481/Installing+as+a+Linux+Service
 ```sh
-service esbserver start
-service esbserver stop
-service esbserver restart
+sh WSO2/wso2esb-4.8.1/bin/wso2server.sh start
+sh WSO2/wso2esb-4.8.1/bin/wso2server.sh stop
+sh WSO2/wso2esb-4.8.1/bin/wso2server.sh restart
 ```
 * Management https://bam01.ushauri.co.za:9444/carbon
