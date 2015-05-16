@@ -123,7 +123,7 @@ mongodb://disonaOwner:passw0rd@bam01.ushauri.co.za:27017/disona
 ```
 <a name="disona"></a>
 #DiSonA
-See [https://github.com/ksstech/DiSoNa](Disona) for installation instructions
+See https://github.com/ksstech/DiSoNa for installation instructions
 
 <a name="esb"></a>
 ## WSO2 ESB
