@@ -1,9 +1,8 @@
 'use strict';
-//TODO: add functionality for nodetime
-//TODO: add functionality for commander
-//TODO: add package.json
-var config = require("./config.js");
-var mongo = require("mongojs");
+var winston = require('winston');
+var config = require('./config.js');
+var data = require('./lib/data.js');
+var mqttServer = require('./lib/mqttServer')
 
 //TODO: add program(commander) options
 
@@ -20,16 +19,32 @@ console.log("                              ");
 console.log('Starting ze service...');
 console.log("");
 
-//start mqtt
-var mqtt = require('./lib/mqttServer');
-var mqttServer = new mqtt(config);
+//start up logging
+/////////////////////////////////
+var logger = new winston.Logger({
+  transports: [
+    new winston.transports.Console({ handleExceptions: true, timestamp: true}),
+    new winston.transports.File({ filename: 'disona.log', handleExceptions: true, timestamp: true })
+  ],
+  exitOnError: false
+});
+if (config.logging.file == false) logger.remove(winston.transports.File);
+if (config.logging.console == false) logger.remove(winston.transports.Console);
+logger.info('Logger is humming...');
+
+//start up mongo service
+//////////////////////////////////////
+var mongo = new data(logger);
+
+// start mqtt
+var mqtt = new mqttServer(logger);
 
 //start coap
-var coapServer = require("./lib/coapServer")(config,mqttServer);
+var coapServer = require("./lib/coapServer")(logger, mongo, mqtt);
 
 //start http
-var httpServer = require('./lib/httpServer')(config,mqttServer);
+//var httpServer = require('./lib/httpServer')(config,mqttServer);
 
-var disonaServer = require('./lib/disonaServer.js')(config,mqttServer);
+//var disonaServer = require('./lib/disonaServer.js')(config,mqttServer);
 
 

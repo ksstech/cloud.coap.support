@@ -6,17 +6,21 @@ module.exports = {
     http_port: process.env.PORT || 3000,
     coap_port: 5683,
     mongodb: {
-        host: 'ossewawiel.dyndns.org',
+        host: 'bam01.ushauri.co.za',
         port: 27017,
         database: 'disona',
-        username: 'disona',
+        username: 'disonaOwner',
         password: 'passw0rd'
     },
     mqtt: {
-      host: 'ossewawiel.dyndns.org',
+      host: 'bam01.ushauri.co.za',
       port: 1883,
       username: 'admin',
       password: 'admin',
+    },
+    logging: {
+        console: true,
+        file: true
     },
     allow_reregister: true
 };
