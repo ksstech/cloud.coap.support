@@ -4,7 +4,7 @@ Support scripts for installations, config and running products as well as docume
 Note: This is a work in progress.
 
 * <a href="#admin">Admin</a>
-* <a href="#prepair">prepair</a>
+* <a href="#prepair">Prepair</a>
 * <a href="#activemq">ActiveMQ</a>
 * <a href="#mongo">MongoDB</a>
 * <a href="#esb">WSO2 ESB</a>
@@ -19,11 +19,13 @@ Note: This is a work in progress.
 | MongoDB | | | |
 
 <a name="prepair"></a>
-##Prepairing Ubuntu server for github
+##Prepairing Ubuntu server for github and nodejs
 Logon to the server via putty or your preferred ssh client and do the following:
 ```sh
 sudo apt-get update
 sudo apt-get install git
+curl -sL https://deb.nodesource.com/setup | sudo bash -
+sudo apt-get install nodejs
 ```
 
 <a name="activemq"></a>
