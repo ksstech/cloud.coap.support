@@ -7,6 +7,7 @@ Note: This is a work in progress.
 * <a href="#prepair">Prepair</a>
 * <a href="#activemq">ActiveMQ</a>
 * <a href="#mongo">MongoDB</a>
+* <a href="#disona">DiSoNa</a>
 * <a href="#esb">WSO2 ESB</a>
 
 <a name="admin"></a>
@@ -120,6 +121,9 @@ mongo disona -u disonaOwnder -p passw0rd
 ```
 mongodb://disonaOwner:passw0rd@bam01.ushauri.co.za:27017/disona
 ```
+<a name="disona"></a>
+#DiSonA
+See [https://github.com/ksstech/DiSoNa](Disona) for installation instructions
 
 <a name="esb"></a>
 ## WSO2 ESB
