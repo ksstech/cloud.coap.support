@@ -43,7 +43,7 @@ var mqtt = new mqttServer(logger);
 var coapServer = require("./lib/coapServer")(logger, mongo, mqtt);
 
 //start http
-//var httpServer = require('./lib/httpServer')(logger, mongo);
+var httpServer = require('./lib/httpServer')(logger, mongo);
 
 //var disonaServer = require('./lib/disonaServer.js')(config,mqttServer);
 
