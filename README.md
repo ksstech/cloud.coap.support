@@ -62,11 +62,11 @@ tar zxvf apache-activemq-x.x.x-bin.tar.gz
 ###Running
 First run Active MQ in console mode to ensure all is well and then run as daemon
 ```sh
-cd
-sudo ./AvtiveMQ/apache-activemq-5.11.1/bin/activemq console
-sudo ./AvtiveMQ/apache-activemq-5.11.1/bin/activemq start
+cd ActiveMQ/apache-activemq-5.11.1/bin
+sudo ./activemq console
+sudo ./activemq start
 ...
-sudo ./AvtiveMQ/apache-activemq-5.11.1/bin/activemq stop
+sudo ./activemq stop
 ```
 
 The management console can be found at:
