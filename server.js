@@ -2,8 +2,8 @@
 var winston = require('winston');
 var config = require('./config.js');
 var data = require('./lib/data.js');
-var mqttServer = require('./lib/mqttServer')
-
+var mqttServer = require('./lib/mqttServer');
+var coapClient = require('./lib/coapClient');
 //TODO: add program(commander) options
 
 ////////////////////////////////////
@@ -24,7 +24,7 @@ console.log("");
 var logger = new winston.Logger({
   transports: [
     new winston.transports.Console({ handleExceptions: true, timestamp: true}),
-    new winston.transports.File({ filename: 'disona.log', handleExceptions: true, timestamp: true })
+    new winston.transports.DailyRotateFile({ filename: 'disona.log', handleExceptions: true, timestamp: true })
   ],
   exitOnError: false
 });
@@ -39,8 +39,9 @@ var mongo = new data(logger);
 // start mqtt
 var mqtt = new mqttServer(logger);
 
+var cC = new coapClient(logger,mongo,mqtt); 
 //start coap
-var coapServer = require("./lib/coapServer")(logger, mongo, mqtt);
+var coapServer = require("./lib/coapServer")(logger, mongo, mqtt, cC);
 
 //start http
 var httpServer = require('./lib/httpServer')(logger, mongo);
