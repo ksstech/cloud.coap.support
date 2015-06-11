@@ -1,7 +1,7 @@
 'use strict';
 var winston = require('winston');
 var config = require('./config.js');
-var data = require('./lib/data.js');
+//var data = require('./lib/activeMotes.js');
 var mqttServer = require('./lib/mqttServer');
 var coapClient = require('./lib/coapClient');
 //TODO: add program(commander) options
@@ -32,19 +32,19 @@ if (config.logging.file == false) logger.remove(winston.transports.File);
 if (config.logging.console == false) logger.remove(winston.transports.Console);
 logger.info('Logger is humming...');
 
-//start up mongo service
+//start up activeMote service
 //////////////////////////////////////
-var mongo = new data(logger);
-
+var activeMotes = require('./lib/activeMotes')();
+//console.log(activeMotes);
 // start mqtt
 var mqtt = new mqttServer(logger);
 
-var cC = new coapClient(logger,mongo,mqtt); 
+var cC = new coapClient(logger,activeMotes,mqtt); 
 //start coap
-var coapServer = require("./lib/coapServer")(logger, mongo, mqtt, cC);
+var coapServer = require("./lib/coapServer")(logger, activeMotes, mqtt, cC);
 
 //start http
-var httpServer = require('./lib/httpServer')(logger, mongo);
+var httpServer = require('./lib/httpServer')(logger, activeMotes);
 
 //var disonaServer = require('./lib/disonaServer.js')(config,mqttServer);
 
