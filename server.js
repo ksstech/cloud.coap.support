@@ -1,7 +1,7 @@
 'use strict';
 var winston = require('winston');
 var config = require('./config.js');
-//var data = require('./lib/activeMotes.js');
+var data = require('./lib/activeMotes.js');
 var mqttServer = require('./lib/mqttServer');
 var coapClient = require('./lib/coapClient');
 //TODO: add program(commander) options
@@ -34,7 +34,7 @@ logger.info('Logger is humming...');
 
 //start up activeMote service
 //////////////////////////////////////
-var activeMotes = require('./lib/activeMotes')();
+var activeMotes = new data();
 //console.log(activeMotes);
 // start mqtt
 var mqtt = new mqttServer(logger);
