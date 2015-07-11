@@ -46,6 +46,9 @@ var coapServer = require("./lib/coapServer")(logger, activeMotes, mqtt, cC);
 //start http
 var httpServer = require('./lib/httpServer')(logger, activeMotes);
 
+//mqtt listener
+var mqttListener = require('./lib/mqttListener')(mqtt,activeMotes,logger);
+
 //var disonaServer = require('./lib/disonaServer.js')(config,mqttServer);
 
 
