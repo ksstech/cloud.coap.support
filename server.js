@@ -4,6 +4,7 @@ var config = require('./config.js');
 var data = require('./lib/activeMotes.js');
 var mqttServer = require('./lib/mqttServer');
 var coapClient = require('./lib/coapClient');
+var coapServer = require('./lib/coapServer');
 //TODO: add program(commander) options
 
 ////////////////////////////////////
@@ -39,12 +40,12 @@ var activeMotes = new data();
 // start mqtt
 var mqtt = new mqttServer(logger);
 
-var cC = new coapClient(logger,activeMotes,mqtt); 
+var cC = new coapClient(logger); 
 //start coap
-var coapServer = require("./lib/coapServer")(logger, activeMotes, mqtt, cC);
+var cS = coapServer(logger, mqtt, cC);
 
 //start http
-var httpServer = require('./lib/httpServer')(logger, activeMotes);
+//var httpServer = require('./lib/httpServer')(logger, activeMotes);
 
 //mqtt listener
 var mqttListener = require('./lib/mqttListener')(mqtt,activeMotes,logger);
