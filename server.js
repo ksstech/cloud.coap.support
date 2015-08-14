@@ -40,16 +40,13 @@ var activeMotes = new data();
 // start mqtt
 var mqtt = new mqttServer(logger);
 
-var cC = new coapClient(logger); 
 //start coap
-var cS = coapServer(logger, mqtt, cC);
+var cS = coapServer(logger, mqtt);
 
 //start http
 //var httpServer = require('./lib/httpServer')(logger, activeMotes);
 
 //mqtt listener
-var mqttListener = require('./lib/mqttListener')(mqtt,activeMotes,logger);
+//var mqttListener = require('./lib/mqttListener')(mqtt,activeMotes,logger);
 
 //var disonaServer = require('./lib/disonaServer.js')(config,mqttServer);
-
-
