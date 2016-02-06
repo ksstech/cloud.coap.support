@@ -5,6 +5,7 @@ var data = require('./lib/activeMotes.js');
 var mqttServer = require('./lib/mqttServer');
 var coapClient = require('./lib/coapClient');
 var coapServer = require('./lib/coapServer');
+var amqpServer = require('./lib/amqpServer');
 //TODO: add program(commander) options
 
 ////////////////////////////////////
@@ -22,10 +23,10 @@ console.log("");
 
 //start up logging
 /////////////////////////////////
-var logger = new winston.Logger({
+var logger = new (winston.Logger)({
   transports: [
-    new winston.transports.Console({ handleExceptions: true, timestamp: true}),
-    new winston.transports.DailyRotateFile({ filename: 'disona.log', handleExceptions: true, timestamp: true })
+    new (winston.transports.Console)({handleExceptions: true, timestamp: true}),
+    new (winston.transports.File)({ filename: 'disona.log', handleExceptions: true, timestamp: true })
   ],
   exitOnError: false
 });
@@ -40,8 +41,10 @@ var activeMotes = new data();
 // start mqtt
 var mqtt = new mqttServer(logger);
 
+var amqp = new amqpServer(logger);
+
 //start coap
-var cS = coapServer(logger, mqtt);
+var cS = coapServer(logger, mqtt, amqp);
 
 //start http
 //var httpServer = require('./lib/httpServer')(logger, activeMotes);

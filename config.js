@@ -7,6 +7,17 @@ var config = {
       username: 'admin',
       password: 'admin',
     },
+    amqp: {
+      host: 'localhost',
+      port: 5672,
+      login: 'guest',
+      password: 'guest',
+      connectionTimeout: 10000,
+      authMechanism: 'AMQPLAIN',
+      vhost: '/',
+      noDelay: true,
+      ssl: { enabled : false}
+    },
     logging: {
         console: true,
         file: true
@@ -20,7 +31,7 @@ var config = {
 	defaultLeisure: 5,
 	probingRate: 1, // byte/seconds
 	maxLatency: 100 // seconds
-    	
+
 };
 config.maxTransmitSpan = config.ackTimeout * ((Math.pow(2, config.maxRetransmit)) - 1) * config.ackRandomFactor
 config.maxTransmitWait = config.ackTimeout * (Math.pow(2, config.maxRetransmit + 1) - 1) * config.ackRandomFactor
