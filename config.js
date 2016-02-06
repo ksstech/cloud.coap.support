@@ -8,7 +8,7 @@ var config = {
       password: 'admin',
     },
     amqp: {
-      host: 'localhost',
+      host: '197.96.138.188',
       port: 5672,
       login: 'guest',
       password: 'guest',

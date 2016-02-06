@@ -2,7 +2,7 @@
 var winston = require('winston');
 var config = require('./config.js');
 var data = require('./lib/activeMotes.js');
-var mqttServer = require('./lib/mqttServer');
+//var mqttServer = require('./lib/mqttServer');
 var coapClient = require('./lib/coapClient');
 var coapServer = require('./lib/coapServer');
 var amqpServer = require('./lib/amqpServer');
@@ -26,7 +26,7 @@ console.log("");
 var logger = new (winston.Logger)({
   transports: [
     new (winston.transports.Console)({handleExceptions: true, timestamp: true}),
-    new (winston.transports.File)({ filename: 'disona.log', handleExceptions: true, timestamp: true })
+    new (winston.transports.File)({ filename: 'disona.log', maxsize:300000000, maxFiles: 10, json: false, handleExceptions: true, timestamp: true })
   ],
   exitOnError: false
 });
@@ -39,12 +39,12 @@ logger.info('Logger is humming...');
 var activeMotes = new data();
 //console.log(activeMotes);
 // start mqtt
-var mqtt = new mqttServer(logger);
+//var mqtt = new mqttServer(logger);
 
 var amqp = new amqpServer(logger);
 
 //start coap
-var cS = coapServer(logger, mqtt, amqp);
+var cS = coapServer(logger, amqp);
 
 //start http
 //var httpServer = require('./lib/httpServer')(logger, activeMotes);
