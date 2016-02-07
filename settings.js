@@ -11,5 +11,5 @@ module.exports = {
 		console: true,
 		dailyfile: true
 	},
-	rules_path: '/home/ubuntu/rules/'
+	rules_path: '/home/marsel/rules/'
 };
