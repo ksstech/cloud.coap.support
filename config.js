@@ -1,12 +1,12 @@
 var config = {
     influxDB: {
-      host: 'bam02.ushauri.co.za',
+      host: '197.96.136.162',
       port: 8086,
       senseDB: 'sense',
       alertDB: 'alert'
     },
     amqp: {
-      host: 'bam01.ushauri.co.za',
+      host: '197.96.138.188',
       port: 5672,
       login: 'guest',
       password: 'guest',
