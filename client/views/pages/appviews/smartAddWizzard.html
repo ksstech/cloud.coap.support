@@ -1,0 +1,33 @@
+<template name="smartAddWizzard">
+    <!-- Page heading -->
+    {{> pageHeading title=collection.displayName category='Add Wizzard' icon=collection.icon }}
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        {{#if isEdit}}
+                        <h5>Edit item in {{collection.displayName}}</h5>
+                        {{else}}
+                        <h5>Add new item to {{collection.displayName}}</h5>
+                        {{/if}}
+                    </div>
+                    <div class="ibox-content">
+                        <form id="form" action="{{getAction}}" role="form" class="form-horizontal">
+
+                        {{#each definitions}}
+                          {{> UI.dynamic template=template data=this}}
+                        {{/each}}
+                          <div class="form-group">
+                              <div class="col-sm-4 col-sm-offset-2">
+                                  <button class="btn btn-white cancel" type="button">Cancel</button>
+                                  <button class="btn btn-primary submit" type="submit">Submit</button>
+                              </div>
+                          </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

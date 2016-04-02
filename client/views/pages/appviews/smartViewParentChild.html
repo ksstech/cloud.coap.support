@@ -1,0 +1,277 @@
+<template name="viewSmartParentChild">
+
+    <!-- Page heading -->
+    {{> pageHeading title=view.header category='Smart View' icon=view.icon}}
+
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-sm-{{smartView.parentWidth}}">
+                <div class="ibox">
+                    <div class="ibox-content">
+                        {{{collection.description}}}
+
+                        <div class="input-group">
+                            <input type="text" placeholder="Search " class="input form-control">
+                                <span class="input-group-btn">
+                                        <button id="btnSearch" type="button" class="btn btn btn-primary"> <i class="fa fa-search"></i> Search</button>
+                                </span>
+                        </div>
+                        <div class="clients-list">
+                          {{#if showGroups}}
+                            <div class="tabs-container">
+                              <div class="{{tabPosition}}">
+                              <ul class="nav nav-tabs">
+                                {{#each groups}}
+                                  <li class="{{isActive this}}"><a class="tab parentTab" data-toggle="tab" href="#tabParentGroup">{{{this}}}</a></li>
+                                  {{/each}}
+                              </ul>
+
+                              <div class="tab-content">
+                                  <div id="tabParentGroup" class="tab-pane active">
+                                    <div class="panel-body">
+                                          <div class="table-responsive">
+                                            <table id="dtParent" class="table table-striped table-hover {{hasHeader}}" >
+
+                                            </table>
+                                          </div>
+
+                                    </div>
+                                  </div>
+                              </div>
+                            </div>
+                            </div>
+                          {{/if}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-{{childWidth}}">
+              <!--check what type of children tab or collapse-->
+              {{#if childIsCollapse}}
+                <div class="ibox ">
+                  <div class="ibox-content">
+                    {{#if hasData}}
+                      {{> viewSmartChildren}}
+                    {{/if}}
+                  </div>
+                </div>
+              {{/if}}{{#if childIsTab}}
+                <div class="ibox ">
+                  <div class="ibox-title">
+                    <h5>{{getHeader}}</h5>
+                  </div>
+                  {{#if hasData}}
+                    {{> viewSmartTabs}}
+                  {{/if}}
+                </div>
+              {{/if}}
+            </div>
+        </div>
+  </div>
+  <div class="modal inmodal fade" id="smartEditModal" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+              {{> viewSmartAddEditModal}}
+          </div>
+      </div>
+  </div>
+</template>
+
+<template name="viewSmartOrg">
+  <div class="m-b-lg">
+      <h2>{{name}}<span class="pull-right"><h4>{{organisation_type}}</h4></span></h2>
+      <h3>{{parent_organisation}}</h3>
+      <p>
+          {{{description}}}
+      </p>
+      <div>
+        <ul class="list-group clear-list">
+            <li class="list-group-item">
+                <span class="pull-right">{{imacs_code}}</span>
+                IMACS Code:
+            </li>
+            <li class="list-group-item">
+                <span class="pull-right">{{registration_code}}</span>
+                Registration Code:
+            </li>
+        </ul>
+      </div>
+
+  </div>
+</template>
+
+<template name="viewSmartAddresses">
+  <div class="ibox float-e-margins">
+      <div class="ibox-title">
+          <h5><i class="fa fa-home ibox-icon"></i>&nbsp;Addresses</h5>
+          {{>iboxToolsJustCollapse}}
+      </div>
+      <div class="ibox-content">
+        {{#each this}}
+        <address>
+            <strong>{{address_type}}</strong><br>
+            {{part1}}<br>
+            {{part2}}<br>
+            {{country}}<br>
+            {{location}}<br>
+        </address>
+        {{/each}}
+      </div>
+  </div>
+</template>
+
+<template name="viewSmartTelephones">
+  <div class="ibox float-e-margins">
+      <div class="ibox-title">
+          <h5><i class="fa fa-phone ibox-icon"></i>&nbsp;Phone numbers</h5>
+          {{>iboxToolsJustCollapse}}
+      </div>
+      <div class="ibox-content">
+        <address>
+        {{#each this}}
+          <strong>{{phone_type}}:</strong> ({{international_code}}) {{number}}<br>
+        {{/each}}
+        </address>
+      </div>
+  </div>
+</template>
+
+<template name="viewSmartEmails">
+  <div class="ibox float-e-margins">
+      <div class="ibox-title">
+          <h5><i class="fa fa-envelope ibox-icon"></i>&nbsp;Emails</h5>
+          {{>iboxToolsJustCollapse}}
+      </div>
+      <div class="ibox-content">
+        <address>
+        {{#each this}}
+          <strong>{{email_type}}:</strong> {{email}}<br>
+        {{/each}}
+        </address>
+      </div>
+  </div>
+</template>
+
+<template name="viewSmartProperties">
+  <div class="ibox float-e-margins">
+      <div class="ibox-title">
+          <h5><i class="fa fa-ellipsis-v ibox-icon"></i>&nbsp;Properties</h5>
+          {{>iboxToolsJustCollapse}}
+      </div>
+      <div class="ibox-content">
+        <div class="table-responsive">
+          <table class="table table-striped table-hover">
+            <tbody>
+            {{#each this}}
+            <tr>
+              <td><strong>{{key}}:</strong></td><td>{{value}}</td>
+            </tr>
+            {{/each}}
+            </tbody>
+          </table>
+        </div>
+      </div>
+  </div>
+</template>
+
+<template name="viewSmartList">
+  <div class="ibox float-e-margins">
+      <div class="ibox-title">
+          <h5><i class="fa {{icon}} ibox-icon"></i>&nbsp;{{header}}</h5>
+          {{>iboxToolsJustCollapse}}
+      </div>
+      <div class="ibox-content">
+        <div class="full-height-scroll">
+            <div class="table-responsive">
+              <table id="tbl_{{collectionId}}" class="table table-striped table-hover table-no-header" >
+
+              </table>
+            </div>
+        </div>
+      </div>
+  </div>
+</template>
+
+<template name="viewSmartChildren">
+      {{#each getChildData}}
+          {{> UI.dynamic template=template data=data}}
+      {{/each}}
+</template>
+
+<template name="viewSmartTabs">
+
+  {{#if contentChanged}}
+    <div class="ibox-content">
+      <div class="tabs-container">
+        <div class="tabs-top">
+        <ul class="nav nav-tabs">
+        {{#each getChildData}}
+          <li class="{{isActive collectionId}}"><a class="tab childTab" data-toggle="tab" href="#tab_{{collectionId}}"><i class="fa {{icon}}"></i> {{{displayName}}}</a></li>
+        {{/each}}
+        </ul>
+          <div class="tab-content">
+          {{#each getChildData}}
+            <div id="tab_{{collectionId}}" class="tab-pane {{isActive collectionId}}">
+              <div class="panel-body">
+              {{> UI.dynamic template=getTemplate data=this}}
+              </div>
+            </div>
+          {{/each}}
+          </div>
+        </div>
+      </div>
+    </div>
+  {{/if}}
+
+</template>
+
+<template name="viewSmartCrudTable">
+  {{getData}}
+  <div class="{{groupsClass loadData.showGroups}}">
+    {{#if loadData.showGroups}}
+      <div class="tabs-left">
+        <ul class="nav nav-tabs">
+          {{#each loadData.groups}}
+            <li class="{{isActive this}}"><a class="tab crudTab" data-toggle="tab" href="#tabChildGroup">{{{this}}}</a></li>
+            {{/each}}
+        </ul>
+        <div class="tab-content">
+          <div id="tabChildGroup" class="tab-pane active">
+            <div class="panel-body">
+              <div class="table-responsive">
+                <table id="tbl_{{collectionId}}" class="table table-striped table-hover"></table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    {{else}}
+      <div class="table-responsive">
+        <table id="tbl_{{collectionId}}" class="table table-striped table-hover"></table>
+      </div>
+    {{/if}}
+  </div>
+</template>
+
+<template name="viewSmartAddEditModal">
+  <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+      {{#if getAddEdit.isEdit}}
+        <h4 class="modal-title">Edit {{getAddEdit.friendlyName}}</h4>
+      {{else}}
+        <h4 class="modal-title">Add {{getAddEdit.friendlyName}}</h4>
+      {{/if}}
+  </div>
+    <form id="form" action="{{getAction}}" role="form" class="form-horizontal">
+      <div class="ibox-content">
+        {{{hiddenKeys}}}
+        {{#each getAddEdit.definitions}}
+          {{> UI.dynamic template=template data=this}}
+        {{/each}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-white" data-dismiss="modal">Cancel</button>
+        <button class="btn btn-primary submit" type="submit" >Save changes</button>
+      </div>
+    </form>
+</template>

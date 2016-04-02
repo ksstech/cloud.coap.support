@@ -1,0 +1,149 @@
+<template name="navigation">
+    <nav class="navbar-default navbar-static-side" role="navigation">
+        <div class="sidebar-collapse">
+
+            <!-- Close canvas menu used only on OffCanvas page -->
+            <!-- You can remove this tag if you dont use offCanvas menu -->
+            <a class="close-canvas-menu"><i class="fa fa-times"></i></a>
+            <!-- End offCanvas menu toggle -->
+
+            <ul class="nav metismenu" id="side-menu">
+                <li class="nav-header">
+                    <div class="dropdown profile-element"><span class="block m-t-xs"><H1>iMaginator</H1></span>
+                       <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <span class="clear">
+                                <span class="block m-t-xs">
+                                    <strong class="font-bold">{{currentUser.profile.fullName}}</strong>
+                                </span>
+                                <!--span class="text-muted text-xs block">Art Director<b class="caret"></b></span-->
+                            </span>
+                        </a>
+                        <!--ul class="dropdown-menu animated fadeInRight m-t-xs">
+                            <li><a href="{{pathFor route='profile'}}">Profile</a></li>
+                            <li><a href="{{pathFor route='contacts'}}">Contacts</a></li>
+                            <li><a href="{{pathFor route='mailbox'}}">Mailbox</a></li>
+                            <li class="divider"></li>
+                            <li><a href="{{pathFor route='login'}}">Logout</a></li>
+                        </ul-->
+                    </div>
+                    <!--div class="logo-element">
+
+                    </div-->
+                </li>
+                <li class="{{checkActive 'imaginator'}}">
+                    <a href="{{pathFor route='imaginator'}}" aria-expanded="true"><i class="fa fa-dashboard"></i> <span class="nav-label">Dashboard</span></a>
+                </li>
+                <li class="{{checkActive 'ViewAllCrud/gTFdbq4Navcft2JXM|ViewAllCrud/HcmQGwCccDfdQ7ZuY|ViewAllCrud/dNwdSfsaAL7m2ynBm|ViewAllCrud/fvhFveS6zLhbQ7XSG|ViewAllCrud/9Qy2gCbNTDJgcgu4u|ViewAllCrud/sHGcS4EPW8sYbsJ2N|ViewAllCrud/KuQDuFN4EZMiN699d|ViewAllCrud/yeRfypGyvp72tuyYN|MultiCrudView/uyp2bXBX6w4F4xJkF'}}">
+                    <a href="#" aria-expanded="false"><i class="fa fa-cogs"></i> <span class="nav-label">Site Builder</span> <span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse {{checkActiveUL 'ViewAllCrud/gTFdbq4Navcft2JXM|ViewAllCrud/HcmQGwCccDfdQ7ZuY|ViewAllCrud/dNwdSfsaAL7m2ynBm|ViewAllCrud/fvhFveS6zLhbQ7XSG|ViewAllCrud/9Qy2gCbNTDJgcgu4u|ViewAllCrud/sHGcS4EPW8sYbsJ2N|ViewAllCrud/KuQDuFN4EZMiN699d|ViewAllCrud/yeRfypGyvp72tuyYN|MultiCrudView/uyp2bXBX6w4F4xJkF'}}" aria-expanded="false">
+                      <li class="{{checkActive 'ViewAllCrud/gTFdbq4Navcft2JXM'}}"><a href="/ViewAllCrud/gTFdbq4Navcft2JXM">Menu Items</a></li>
+                      <li class="{{checkActive 'ViewAllCrud/HcmQGwCccDfdQ7ZuY'}}"><a href="/ViewAllCrud/HcmQGwCccDfdQ7ZuY">Collection Items</a></li>
+                      <li class="{{checkActive 'ViewAllCrud/dNwdSfsaAL7m2ynBm'}}"><a href="/ViewAllCrud/dNwdSfsaAL7m2ynBm">Data Definition</a></li>
+                      <li class="{{checkActive 'ViewAllCrud/fvhFveS6zLhbQ7XSG'}}"><a href="/ViewAllCrud/fvhFveS6zLhbQ7XSG">Collection Function</a></li>
+                      <li class="{{checkActive 'ViewAllCrud/9Qy2gCbNTDJgcgu4u'}}"><a href="/ViewAllCrud/9Qy2gCbNTDJgcgu4u">Views</a></li>
+                      <li class="{{checkActive 'ViewAllCrud/sHGcS4EPW8sYbsJ2N'}}"><a href="/ViewAllCrud/sHGcS4EPW8sYbsJ2N">View Columns</a></li>
+                      <li class="{{checkActive 'ViewAllCrud/KuQDuFN4EZMiN699d'}}"><a href="/ViewAllCrud/KuQDuFN4EZMiN699d">View Children</a></li>
+                      <li class="{{checkActive 'ViewAllCrud/yeRfypGyvp72tuyYN'}}"><a href="/ViewAllCrud/yeRfypGyvp72tuyYN">Smart View Settings</a></li>
+                      <li class="{{checkActive 'MultiCrudView/uyp2bXBX6w4F4xJkF'}}"><a href="/MultiCrudView/uyp2bXBX6w4F4xJkF">Lookups</a></li>
+                    </ul>
+                </li>
+                <li class="{{checkActive 'ViewAllCrud/sjXgKFf4REGjXh5mp|ViewAllCrud/Q3nNgnzBoJPQxezxe|ViewAllCrud/6aR2tzM4w9WFvAivr|ViewAllCrud/h4NccZ4tpxzJGcuDm|ViewAllCrud/Li4REbS8P3rfbDkGz|ViewAllCrud/5xEFtbDYQKcaHNiR2|ViewAllCrud/n225ZTKjD5XSTyGAS|ViewAllCrud/257FcQDuDXpNYgfWd|ViewAllCrud/g2GRvLqGFgwD5tkBM|ViewAllCrud/6vn9jL8ZqKLmAPC4a|ViewAllCrud/zD5NpFn3RcBXZTj94|ViewAllCrud/tkNoPZfgAgwyzugr6|ViewAllCrud/AhcHGnxAjdwrmWPYk|ViewAllCrud/fXBktcFnbtWpr6zi7|ViewAllCrud/pT8YrjZytBh7aAu8i|ViewAllCrud/e9FAcyQGjm6D68o7C|ViewAllCrud/iiPvMYv2xh7qHAntE|ViewAllCrud/z3R6YbeCJszoeNkDt|ViewAllCrud/6NA2aEhcdKTMvhYMC|ViewAllCrud/SfSR7hwPBSdYNZjWf|ViewAllCrud/BfPzMcKWg7EvKksEL|ViewAllCrud/JfFPtAy4QeWTSM5rC|ViewAllCrud/aRSNhC6XGh4Qz82qz|ViewAllCrud/wanEXCeGW5oeWije2'}}">
+                    <a href="#" aria-expanded="false"><i class="fa fa-cubes"></i> <span class="nav-label">Landig Page Builder</span> <span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse {{checkActiveUL 'ViewAllCrud/sjXgKFf4REGjXh5mp|ViewAllCrud/Q3nNgnzBoJPQxezxe|ViewAllCrud/6aR2tzM4w9WFvAivr|ViewAllCrud/h4NccZ4tpxzJGcuDm|ViewAllCrud/Li4REbS8P3rfbDkGz|ViewAllCrud/5xEFtbDYQKcaHNiR2|ViewAllCrud/n225ZTKjD5XSTyGAS|ViewAllCrud/257FcQDuDXpNYgfWd|ViewAllCrud/g2GRvLqGFgwD5tkBM|ViewAllCrud/6vn9jL8ZqKLmAPC4a|ViewAllCrud/zD5NpFn3RcBXZTj94|ViewAllCrud/tkNoPZfgAgwyzugr6|ViewAllCrud/AhcHGnxAjdwrmWPYk|ViewAllCrud/fXBktcFnbtWpr6zi7|ViewAllCrud/pT8YrjZytBh7aAu8i|ViewAllCrud/e9FAcyQGjm6D68o7C|ViewAllCrud/iiPvMYv2xh7qHAntE|ViewAllCrud/z3R6YbeCJszoeNkDt|ViewAllCrud/6NA2aEhcdKTMvhYMC|ViewAllCrud/SfSR7hwPBSdYNZjWf|ViewAllCrud/BfPzMcKWg7EvKksEL|ViewAllCrud/JfFPtAy4QeWTSM5rC|ViewAllCrud/aRSNhC6XGh4Qz82qz|ViewAllCrud/wanEXCeGW5oeWije2'}}" aria-expanded="false">
+                      <li class="{{checkActive 'ViewAllCrud/sjXgKFf4REGjXh5mp'}}"><a href="/ViewAllCrud/sjXgKFf4REGjXh5mp">Landing Page</a></li>
+                      <li class="{{checkActive 'ViewAllCrud/Q3nNgnzBoJPQxezxe'}}"><a href="/ViewAllCrud/Q3nNgnzBoJPQxezxe">Landing Page Collection</a></li>
+                      <li class="{{checkActive 'ViewAllCrud/6aR2tzM4w9WFvAivr'}}"><a href="/ViewAllCrud/6aR2tzM4w9WFvAivr">Info Flash</a></li>
+                      <li class="{{checkActive 'ViewAllCrud/h4NccZ4tpxzJGcuDm'}}"><a href="/ViewAllCrud/h4NccZ4tpxzJGcuDm">Info Flash Collection</a></li>
+                      <li class="{{checkActive 'ViewAllCrud/Li4REbS8P3rfbDkGz'}}"><a href="/ViewAllCrud/Li4REbS8P3rfbDkGz">Plain Features</a></li>
+                      <li class="{{checkActive 'ViewAllCrud/5xEFtbDYQKcaHNiR2'}}"><a href="/ViewAllCrud/5xEFtbDYQKcaHNiR2">Plain Features Collection</a></li>
+                      <li class="{{checkActive 'ViewAllCrud/n225ZTKjD5XSTyGAS'}}"><a href="/ViewAllCrud/n225ZTKjD5XSTyGAS">Features with Picture</a></li>
+                      <li class="{{checkActive 'ViewAllCrud/257FcQDuDXpNYgfWd'}}"><a href="/ViewAllCrud/257FcQDuDXpNYgfWd">Features with Picture Collection</a></li>
+                      <li class="{{checkActive 'ViewAllCrud/g2GRvLqGFgwD5tkBM'}}"><a href="/ViewAllCrud/g2GRvLqGFgwD5tkBM">People Profile</a></li>
+                      <li class="{{checkActive 'ViewAllCrud/6vn9jL8ZqKLmAPC4a'}}"><a href="/ViewAllCrud/6vn9jL8ZqKLmAPC4a">People Profile Collection</a></li>
+                      <li class="{{checkActive 'ViewAllCrud/zD5NpFn3RcBXZTj94'}}"><a href="/ViewAllCrud/zD5NpFn3RcBXZTj94">Workflow</a></li>
+                      <li class="{{checkActive 'ViewAllCrud/tkNoPZfgAgwyzugr6'}}"><a href="/ViewAllCrud/tkNoPZfgAgwyzugr6">Workflow Collection</a></li>
+                      <li class="{{checkActive 'ViewAllCrud/AhcHGnxAjdwrmWPYk'}}"><a href="/ViewAllCrud/AhcHGnxAjdwrmWPYk">Testimonials Busy</a></li>
+                      <li class="{{checkActive 'ViewAllCrud/fXBktcFnbtWpr6zi7'}}"><a href="/ViewAllCrud/fXBktcFnbtWpr6zi7">Testimonials Busy Collection</a></li>
+                      <li class="{{checkActive 'ViewAllCrud/pT8YrjZytBh7aAu8i'}}"><a href="/ViewAllCrud/pT8YrjZytBh7aAu8i">Testimonials Plain</a></li>
+                      <li class="{{checkActive 'ViewAllCrud/e9FAcyQGjm6D68o7C'}}"><a href="/ViewAllCrud/e9FAcyQGjm6D68o7C">Testimonials Plain Collection</a></li>
+                      <li class="{{checkActive 'ViewAllCrud/iiPvMYv2xh7qHAntE'}}"><a href="/ViewAllCrud/iiPvMYv2xh7qHAntE">Feature Group</a></li>
+                      <li class="{{checkActive 'ViewAllCrud/z3R6YbeCJszoeNkDt'}}"><a href="/ViewAllCrud/z3R6YbeCJszoeNkDt">Feature Group Collection</a></li>
+                      <li class="{{checkActive 'ViewAllCrud/6NA2aEhcdKTMvhYMC'}}"><a href="/ViewAllCrud/6NA2aEhcdKTMvhYMC">Feature Group Collection Features</a></li>
+                      <li class="{{checkActive 'ViewAllCrud/SfSR7hwPBSdYNZjWf'}}"><a href="/ViewAllCrud/SfSR7hwPBSdYNZjWf">Contact Details</a></li>
+                      <li class="{{checkActive 'ViewAllCrud/BfPzMcKWg7EvKksEL'}}"><a href="/ViewAllCrud/BfPzMcKWg7EvKksEL">Contact Details Collection</a></li>
+                      <li class="{{checkActive 'ViewAllCrud/JfFPtAy4QeWTSM5rC'}}"><a href="/ViewAllCrud/JfFPtAy4QeWTSM5rC">Section Type</a></li>
+                      <li class="{{checkActive 'ViewAllCrud/aRSNhC6XGh4Qz82qz'}}"><a href="/ViewAllCrud/aRSNhC6XGh4Qz82qz">Feature Picture Position</a></li>
+                      <li class="{{checkActive 'ViewAllCrud/wanEXCeGW5oeWije2'}}"><a href="/ViewAllCrud/wanEXCeGW5oeWije2">Feature Icon Position</a></li>
+                    </ul>
+                </li>
+                <li class="{{checkActive 'ViewAllCrud/ypNwtbnPAfh5ZhN4Q|ViewAllCrud/XWDSy2n2wtd4WJxha|ViewAllCrud/aEAf6pGAt4yCeME9r|ViewAllCrud/yPcZ34HNAD2YruFwi|ViewAllCrud/3Xz7zDsACpnDG3Btt|ViewAllCrud/4MxfDtwyNwnWT5Ed5|ViewAllCrud/TcFSBbhL2azzz86ht|ViewAllCrud/EorwrkEoNhZqShxK3|ViewAllCrud/6G7ddTTSRCmGrvsWR|ViewAllCrud/iKouJz4esjFLrCnzB'}}">
+                    <a href="#" aria-expanded="false"><i class="fa fa-refresh"></i> <span class="nav-label">IMACS Crud</span> <span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse {{checkActiveUL 'ViewAllCrud/ypNwtbnPAfh5ZhN4Q|ViewAllCrud/XWDSy2n2wtd4WJxha|ViewAllCrud/aEAf6pGAt4yCeME9r|ViewAllCrud/yPcZ34HNAD2YruFwi|ViewAllCrud/3Xz7zDsACpnDG3Btt|ViewAllCrud/4MxfDtwyNwnWT5Ed5|ViewAllCrud/TcFSBbhL2azzz86ht|ViewAllCrud/EorwrkEoNhZqShxK3|ViewAllCrud/6G7ddTTSRCmGrvsWR|ViewAllCrud/iKouJz4esjFLrCnzB'}}" aria-expanded="false">
+                      <li class="{{checkActive 'ViewAllCrud/ypNwtbnPAfh5ZhN4Q'}}"><a href="/ViewAllCrud/ypNwtbnPAfh5ZhN4Q">Organisation</a></li>
+                      <li class="{{checkActive 'ViewAllCrud/XWDSy2n2wtd4WJxha'}}"><a href="/ViewAllCrud/XWDSy2n2wtd4WJxha">Organisation Type</a></li>
+                      <li class="{{checkActive 'ViewAllCrud/aEAf6pGAt4yCeME9r'}}"><a href="/ViewAllCrud/aEAf6pGAt4yCeME9r">Country</a></li>
+                      <li class="{{checkActive 'ViewAllCrud/yPcZ34HNAD2YruFwi'}}"><a href="/ViewAllCrud/yPcZ34HNAD2YruFwi">Address</a></li>
+                      <li class="{{checkActive 'ViewAllCrud/3Xz7zDsACpnDG3Btt'}}"><a href="/ViewAllCrud/3Xz7zDsACpnDG3Btt">Address Type</a></li>
+                      <li class="{{checkActive 'ViewAllCrud/4MxfDtwyNwnWT5Ed5'}}"><a href="/ViewAllCrud/4MxfDtwyNwnWT5Ed5">Organisation Address</a></li>
+                      <li class="{{checkActive 'ViewAllCrud/TcFSBbhL2azzz86ht'}}"><a href="/ViewAllCrud/TcFSBbhL2azzz86ht">Email</a></li>
+                      <li class="{{checkActive 'ViewAllCrud/EorwrkEoNhZqShxK3'}}"><a href="/ViewAllCrud/EorwrkEoNhZqShxK3">Email Type</a></li>
+                      <li class="{{checkActive 'ViewAllCrud/6G7ddTTSRCmGrvsWR'}}"><a href="/ViewAllCrud/6G7ddTTSRCmGrvsWR">Telephone</a></li>
+                      <li class="{{checkActive 'ViewAllCrud/iKouJz4esjFLrCnzB'}}"><a href="/ViewAllCrud/iKouJz4esjFLrCnzB">Telephone Type</a></li>
+                    </ul>
+                </li>
+                <li class="{{checkActive 'ViewSmartParentChild/ypNwtbnPAfh5ZhN4Q|ViewSmartAddWizzard/ypNwtbnPAfh5ZhN4Q'}}">
+                    <a href="#" aria-expanded="false"><i class="fa fa-sitemap"></i> <span class="nav-label">Organisations</span> <span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse {{checkActiveUL 'ViewSmartParentChild/ypNwtbnPAfh5ZhN4Q|ViewSmartAddWizzard/ypNwtbnPAfh5ZhN4Q'}}" aria-expanded="false">
+                      <li class="{{checkActive 'ViewSmartParentChild/ypNwtbnPAfh5ZhN4Q'}}"><a href="/ViewSmartParentChild/ypNwtbnPAfh5ZhN4Q">View</a></li>
+                      <li class="{{checkActive 'ViewSmartAddWizzard/ypNwtbnPAfh5ZhN4Q'}}"><a href="/ViewSmartAddWizzard/ypNwtbnPAfh5ZhN4Q">Add New...</a></li>
+                    </ul>
+                </li>
+                <li class="{{checkActive 'MultiCrudView/WNPd3SLQruQ2Q7XKi|ViewSmartParentChild/WNPd3SLQruQ2Q7XKi|ViewSmartAddWizzard/WNPd3SLQruQ2Q7XKi'}}">
+                    <a href="#" aria-expanded="false"><i class="fa fa-tasks"></i> <span class="nav-label">Mote Hardware</span> <span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse {{checkActiveUL 'MultiCrudView/WNPd3SLQruQ2Q7XKi|ViewSmartParentChild/WNPd3SLQruQ2Q7XKi|ViewSmartAddWizzard/WNPd3SLQruQ2Q7XKi'}}" aria-expanded="false">
+                      <li class="{{checkActive 'MultiCrudView/WNPd3SLQruQ2Q7XKi'}}"><a href="/MultiCrudView/WNPd3SLQruQ2Q7XKi">Hardware Setup</a></li>
+                      <li class="{{checkActive 'ViewSmartParentChild/WNPd3SLQruQ2Q7XKi'}}"><a href="/ViewSmartParentChild/WNPd3SLQruQ2Q7XKi">Mote Sets</a></li>
+                      <li class="{{checkActive 'ViewSmartAddWizzard/WNPd3SLQruQ2Q7XKi'}}"><a href="/ViewSmartAddWizzard/WNPd3SLQruQ2Q7XKi">Add New...</a></li>
+                    </ul>
+                </li>
+                <li class="{{checkActive 'ViewSmartParentChild/aPpmyGG9tDGg7XiBy|ViewSmartParentChild/CdAXWDa45MHsXCojC'}}">
+                    <a href="#" aria-expanded="false"><i class="fa fa-book"></i> <span class="nav-label">Mote Instructions</span> <span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse {{checkActiveUL 'ViewSmartParentChild/aPpmyGG9tDGg7XiBy|ViewSmartParentChild/CdAXWDa45MHsXCojC'}}" aria-expanded="false">
+                      <li class="{{checkActive 'ViewSmartParentChild/aPpmyGG9tDGg7XiBy'}}"><a href="/ViewSmartParentChild/aPpmyGG9tDGg7XiBy">Sense Sets</a></li>
+                      <li class="{{checkActive 'AdminSmartParentChild'}}"><a href="">Sens Plans</a></li>
+                      <li class="{{checkActive 'ViewSmartParentChild/CdAXWDa45MHsXCojC'}}"><a href="/ViewSmartParentChild/CdAXWDa45MHsXCojC">Rule Sets</a></li>
+                      <li class="{{checkActive 'AdminSmartParentChild'}}"><a href="">Rule Plans</a></li>
+                    </ul>
+                </li>
+                <li class="{{checkActive 'ViewSmartParentChild/KtfWtyDHJHQDBwqxd|ViewSmartAddWizzard/KtfWtyDHJHQDBwqxd'}}">
+                    <a href="#" aria-expanded="false"><i class="fa fa-gear"></i> <span class="nav-label">Motes</span> <span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse {{checkActiveUL 'ViewSmartParentChild/KtfWtyDHJHQDBwqxd|ViewSmartAddWizzard/KtfWtyDHJHQDBwqxd'}}" aria-expanded="false">
+                      <li class="{{checkActive 'ViewSmartParentChild/KtfWtyDHJHQDBwqxd'}}"><a href="/ViewSmartParentChild/KtfWtyDHJHQDBwqxd">View</a></li>
+                      <li class="{{checkActive 'ViewSmartAddWizzard/KtfWtyDHJHQDBwqxd'}}"><a href="/ViewSmartAddWizzard/KtfWtyDHJHQDBwqxd">Add New...</a></li>
+                    </ul>
+                </li>
+                <!--{{#each menuItems}}
+
+                  {{#if hasChildren}}
+                    <li class="{{checkActive regexData}}">
+                        <a href="#" aria-expanded="false"><i class="fa {{icon}}"></i> <span class="nav-label">{{displayName}}</span> <span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse false {{checkActiveUL regexData}}" aria-expanded="false">
+                          {{#each children}}
+                            <li class="{{checkActive regexData}}"><a href="{{route}}">{{displayName}}</a></li>
+                          {{/each}}
+                        </ul>
+                    </li>
+                  {{else}}
+                    <li class="{{checkActive regexData}}">
+                        <a href="{{route}}" aria-expanded="true"><i class="fa {{icon}}"></i> <span class="nav-label">{{displayName}}</span></a>
+                    </li>
+                  {{/if}}
+                {{/each}}-->
+                <li class="special_link">
+                    <a href="/Landingpage/testPage" aria-expanded="false"><i class="fa fa-database"></i> <span class="nav-label">Landing page</span></a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+</template>

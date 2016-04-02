@@ -1,0 +1,172 @@
+<template name="siteBuilderDataTypeInteger">
+  {{#if visible}}
+  <div class="form-group">
+    <label class="col-sm-2 control-label">{{label}}{{asterisk}}</label>
+    <div class="col-sm-10"><input name="{{id}}" type="text" class="form-control" value="{{data}}"></div>
+  </div>
+  {{else}}{{#if isEdit}}
+  <div class="form-group">
+    <label class="col-sm-2 control-label">{{label}}{{asterisk}}</label>
+    <div class="col-sm-10"><input name="{{id}}" type="hidden" value="{{data}}"><input disabled="" type="text" class="form-control" value="{{data}}"></div>
+  </div>
+  {{/if}}{{/if}}
+</template>
+
+<template name="siteBuilderDataTypeText">
+  {{#if visible}}
+  {{#if canEdit}}
+  <div class="form-group">
+    <label class="col-sm-2 control-label">{{label}}{{asterisk}}</label>
+    <div class="col-sm-10">
+      {{#if isEdit}}
+        <input name="{{id}}" type="text" class="form-control" value="{{data}}">
+      {{else}}
+        <input name="{{id}}" type="text" class="form-control" value="{{data}}">
+      {{/if}}
+    </div>
+  </div>
+  {{else}}
+    <input name="{{id}}" type="hidden" value="{{data}}">
+  {{/if}}
+  {{else}}{{#if isEdit}}
+  <div class="form-group">
+    <label class="col-sm-2 control-label">{{label}}{{asterisk}}</label>
+    <div class="col-sm-10"><input name="{{id}}" type="hidden" value="{{data}}"><input disabled="" type="text" class="form-control" value="{{data}}"></div>
+  </div>
+  {{/if}}{{/if}}
+</template>
+
+<template name="siteBuilderDataTypeTextArea">
+  {{#if visible}}
+  <div class="form-group">
+    <label class="col-sm-2 control-label">{{label}}{{asterisk}}</label>
+    <div class="col-sm-10"><textarea name="{{id}}" class="form-control" rows="3">{{data}}</textarea></div>
+  </div>
+  {{else}}{{#if isEdit}}
+  <div class="form-group">
+    <label class="col-sm-2 control-label">{{label}}{{asterisk}}</label>
+    <div class="col-sm-10"><input name="{{id}}" type="hidden" value="{{data}}"><textarea name="{{columnName}}" disabled="" class="form-control" rows="3">{{data}}</textarea></div>
+  </div>
+  {{/if}}{{/if}}
+</template>
+
+<template name="siteBuilderDataTypeBoolean">
+  {{#if visible}}
+  {{#if canEdit}}
+  <div class="form-group">
+    <label class="col-sm-2 control-label">{{label}}{{asterisk}}</label>
+    <div class="col-sm-10">
+      <div class="switch">
+          <div class="onoffswitch">
+              <input name="{{id}}" type="checkbox" {{isChecked data}} class="onoffswitch-checkbox" id="{{id}}">
+              <label class="onoffswitch-label" for="{{id}}">
+                  <span class="onoffswitch-inner"></span>
+                  <span class="onoffswitch-switch"></span>
+              </label>
+          </div>
+      </div>
+      <!--div class="i-checks">
+        <input name="{{id}}" type="checkbox" {{isChecked data}} value="{{data}}">
+      </div-->
+    </div>
+  </div>
+  {{else}}
+    <input name="{{id}}" type="hidden" value="{{data}}">
+  {{/if}}
+  {{else}}{{#if isEdit}}
+  <div class="form-group">
+    <label class="col-sm-2 control-label">{{label}}{{asterisk}}</label>
+    <div class="col-sm-10">
+      <div class="switch">
+          <div class="onoffswitch">
+              <input name="{{columnName}}" type="checkbox" {{isChecked data}} class="onoffswitch-checkbox" id="{{columnName}}">
+              <label class="onoffswitch-label" for="{{columnName}}">
+                  <span class="onoffswitch-inner"></span>
+                  <span class="onoffswitch-switch"></span>
+              </label>
+          </div>
+      </div>
+      <!--div class="i-checks">
+        <input name="{{id}}" type="hidden" value="{{data}}">
+        <input name="{{columnName}}" type="checkbox" {{isChecked data}} disabled="" value="{{data}}">
+      </div-->
+    </div>
+  </div>
+  {{/if}}{{/if}}
+</template>
+
+
+<template name="siteBuilderDataTypeSimpleDropDown">
+  {{#if visible}}
+  <div class="form-group">
+    <label class="col-sm-2 control-label">{{label}}{{asterisk}}</label>
+    <div class="col-sm-10">
+      {{#if isEdit}}
+        {{#unless canEdit}}
+          <input name="{{id}}" type="hidden" value="{{data}}"><input disabled="" type="text" class="form-control" value="{{dataValue}}">
+        {{else}}
+          <select id="{{id}}" name="{{id}}" class="form-control select2">
+            {{#unless required}}<option value="">[No Selection]</option>{{/unless}}
+            {{#each lookupData}}<option {{isSelected id ..}} value="{{id}}">{{name}}</option>{{/each}}
+          </select>
+        {{/unless}}
+      {{else}}
+        <select id="{{id}}" name="{{id}}" class="form-control select2">
+          {{#unless required}}<option value="">[No Selection]</option>{{/unless}}
+          {{#each lookupData}}<option {{isSelected id ..}} value="{{id}}">{{name}}</option>{{/each}}
+        </select>
+      {{/if}}
+
+    </div>
+  </div>
+  {{else}}
+
+
+  {{/if}}
+</template>
+
+<template name="siteBuilderDataTypePlainDropDown">
+  {{#if visible}}
+  <div class="form-group">
+    <label class="col-sm-2 control-label">{{label}}{{asterisk}}</label>
+    <div class="col-sm-10">
+      {{#if isEdit}}
+        {{#unless canEdit}}
+          <input name="{{id}}" type="hidden" value="{{data}}"><input disabled="" type="text" class="form-control" value="{{dataValue}}">
+        {{else}}
+          <select id="{{id}}" name="{{id}}" class="form-control m-b">
+            {{#unless required}}<option value="">[No Selection]</option>{{/unless}}
+            {{#each lookupData}}<option {{isSelected id ..}} value="{{id}}">{{name}}</option>{{/each}}
+          </select>
+        {{/unless}}
+      {{else}}
+        <select id="{{id}}" name="{{id}}" class="form-control m-b">
+          {{#unless required}}<option value="">[No Selection]</option>{{/unless}}
+          {{#each lookupData}}<option {{isSelected id ..}} value="{{id}}">{{name}}</option>{{/each}}
+        </select>
+      {{/if}}
+
+    </div>
+  </div>
+  {{else}}
+
+
+  {{/if}}
+</template>
+
+<template name="siteBuilderDataTypeIconLookup">
+  {{#if visible}}
+  <div class="form-group">
+    <label class="col-sm-2 control-label">{{label}}{{asterisk}}</label>
+    <div class="col-sm-10">
+      <select id="iconsSelect" name="{{id}}" class="select2 form-control">
+        {{#unless required}}<option></option>{{/unless}}
+        {{> iconLookup}}
+      </select>
+    </div>
+  </div>
+  {{else}}
+
+
+  {{/if}}
+</template>
