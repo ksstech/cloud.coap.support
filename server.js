@@ -1,8 +1,9 @@
 'use strict';
 var winston = require('winston');
 var config = require('./config.js');
+var httpClient = require('./lib/httpClient');
 var amqpServer = require('./lib/amqpServer');
-var fluxator = require('./lib/fluxator');
+
 //TODO: add program(commander) options
 
 ////////////////////////////////////
@@ -23,15 +24,12 @@ console.log("");
 var logger = new (winston.Logger)({
   transports: [
     new (winston.transports.Console)({handleExceptions: true, timestamp: true}),
-    new (winston.transports.File)({ filename: 'fluxator.log', handleExceptions: true, maxsize:300000000, maxFiles: 10, json: false, timestamp: true })
+    new (winston.transports.File)({ filename: 'fluxator.log', handleExceptions: true, maxsize:10000000, tailable:true, maxFiles: 10, json: false, timestamp: true })
   ],
   exitOnError: false
 });
 if (config.logging.file == false) logger.remove(winston.transports.File);
 if (config.logging.console == false) logger.remove(winston.transports.Console);
 logger.info('Logger is humming...');
-
-var amqp = new amqpServer(logger);
-
-//start fluxator
-var cS = fluxator(amqp, logger);
+var http = new httpClient(logger);
+var amqp = new amqpServer(http, logger);
