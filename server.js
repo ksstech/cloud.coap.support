@@ -26,7 +26,7 @@ console.log("");
 var logger = new (winston.Logger)({
   transports: [
     new (winston.transports.Console)({handleExceptions: true, timestamp: true}),
-    new (winston.transports.File)({ filename: 'disona.log', maxsize:300000000, maxFiles: 10, json: false, handleExceptions: true, timestamp: true })
+    new (winston.transports.File)({ filename: 'disona.log', maxsize:10000000, maxFiles: 10, tailable: true, json: false, handleExceptions: true, timestamp: true })
   ],
   exitOnError: false
 });
