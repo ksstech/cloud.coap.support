@@ -25,7 +25,7 @@ console.log("");
 var logger = new (winston.Logger)({
   transports: [
     new (winston.transports.Console)({handleExceptions: true, timestamp: true}),
-    new (winston.transports.File)({ filename: 'slimjan.log', handleExceptions: true, maxsize:300000000, maxFiles: 10, json: false, timestamp: true })
+    new (winston.transports.File)({ filename: 'slimjan.log', handleExceptions: true, maxsize:10000000, tailable:true, maxFiles: 10, json: false, timestamp: true })
   ],
   exitOnError: false
 });
