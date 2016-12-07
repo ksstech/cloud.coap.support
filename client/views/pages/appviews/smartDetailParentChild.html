@@ -1,0 +1,125 @@
+<template name="detailSmartParentChild">
+
+  <!-- Page heading -->
+  {{> pageHeading title=header category='Smart Detail' icon=icon }}
+
+
+  <div class="wrapper wrapper-content">
+      <div class="row animated fadeInRight">
+        {{#if contentChanged}}
+          <div class="col-md-4">
+              {{> smartMainData data=this}}
+          </div>
+          {{/if}}
+          <div class="col-md-8">
+                  <div class="tabs-container">
+                    <div class="tabs-top">
+                      <ul class="nav nav-tabs">
+                        {{#each children}}
+                        <li class="{{isActive collectionId}}"><a class="tab" data-toggle="tab" href="#{{collectionId}}"><i class="fa {{icon}}"></i> {{{displayName}}}</a></li>
+                        {{/each}}
+                      </ul>
+                        <div class="tab-content">
+                          {{#if contentChanged}}{{#each children}}
+                            <div id="{{collectionId}}" class="tab-pane {{isActive collectionId}}">
+                                <div class="panel-body">
+                                  {{> UI.dynamic template=getTemplate data=this}}
+                                </div>
+                            </div>
+                          {{/each}}{{/if}}
+                        </div>
+                  </div>
+                </div>
+          </div>
+      </div>
+  </div>
+
+  <div class="modal inmodal fade" id="smartEditModal" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+              {{> detailSmartAddEditModal}}
+          </div>
+      </div>
+  </div>
+</template>
+
+<template name="smartMainData">
+  <div class="ibox float-e-margins">
+    <div class="ibox-title">
+        <h3>{{data.mainData.header}}</h3>
+    </div>
+    <div>
+        <div class="ibox-content profile-content">
+            <p>{{{data.mainData.description}}}</p>
+                <div>
+                  <dl class="dl-horizontal">
+                    {{#each data.mainData.data}}
+                      <dt>{{name}}:</dt> <dd>{{value}}</dd>
+                    {{/each}}
+                  </dl>
+                </div>
+            <div class="user-button">
+                <div class="row">
+                    <div class="col-md-6">
+                        <button type="button" class="btn btn-default btn-sm btn-block" value="back"><i class="fa fa-reply"></i> Back to List</button>
+                    </div>
+                    <div class="col-md-6">
+                        <button type="button" class="btn btn-primary btn-sm btn-block" data-toggle="modal" data-backdrop="static" data-target="#smartEditModal" value="edit"><i class="fa fa-pencil-square-o"></i> Edit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</template>
+
+<template name="smartCrudTable">
+  <div class="{{groupsClass}}">
+    {{#if showGroups}}
+      <div class="tabs-left">
+        <ul class="nav nav-tabs">
+          {{#each loadData.groups}}
+            <li class="{{isActive this}}"><a class="tab" data-toggle="tab" href="#tab-1">{{{this}}}</a></li>
+            {{/each}}
+        </ul>
+        <div class="tab-content">
+          <div id="tab-1" class="tab-pane active">
+            <div class="panel-body">
+              <div class="table-responsive">
+                <table id="tbl_{{collectionId}}" class="table table-striped table-hover"></table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    {{else}}
+      <div class="table-responsive">
+        <table id="tbl_{{collectionId}}" class="table table-striped table-hover"></table>
+      </div>
+    {{/if}}
+  </div>
+</template>
+
+
+<template name="detailSmartAddEditModal">
+  <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+      {{#if getAddEdit.isEdit}}
+        <h4 class="modal-title">Edit {{getAddEdit.friendlyName}}</h4>
+      {{else}}
+        <h4 class="modal-title">Add {{getAddEdit.friendlyName}}</h4>
+      {{/if}}
+  </div>
+    <form id="form" action="{{getAction}}" role="form" class="form-horizontal">
+      <div class="ibox-content">
+        {{{hiddenKeys}}}
+        {{#each getAddEdit.definitions}}
+          {{> UI.dynamic template=template data=this}}
+        {{/each}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-white" data-dismiss="modal">Cancel</button>
+        <button class="btn btn-primary submit" type="submit" >Save changes</button>
+      </div>
+    </form>
+</template>

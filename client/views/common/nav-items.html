@@ -1,0 +1,16 @@
+<template name="navItemDashboard">
+  <li class="{{isActiveRoute regex='general'}}">
+      <a href="{{pathFor route='general'}}" ><i class="fa {{icon_style}}"></i> <span class="nav-label">{{display_name}}</span></a>
+  </li>
+</template>
+
+<template name="navItemSiteBuilder">
+  <li class="{{isActiveRoute regex='sitebuilder.datatable'}}">
+      <a href="#"><i class="fa {{icon_style}}"></i> <span class="nav-label">{{display_name}}</span> <span class="fa arrow"></span></a>
+      <ul class="nav nav-second-level collapse {{isActiveRoute regex='sitebuilder.datatable'}}">
+        {{#each children}}
+        <li class="{{isActiveRoute regex='sitebuilder.datatable'}}"><a href="{{pathFor route='sitebuilder.datatable'}}">{{display_name}}</a></li>
+        {{/each}}
+      </ul>
+  </li>
+</template>

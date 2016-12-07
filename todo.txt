@@ -1,0 +1,29 @@
+//Smart Detail view: Addresses: create stored proc for update with point data
+  //- proc on db
+  //- function on DSS
+  //- correct site builder data
+  //- test
+//Smart Detail view: Addresses: create stored proc for add with point data and by org
+//Smart Detail view: Addresses: create stored proc for delete with point data and by org
+
+//Smart Detail view: Telephone: create stored proc for delete by org
+
+//Smart Detail view: Email: create query for update
+//Smart Detail view: Email: create proc for add by org
+//Smart Detail view: Email: create proc for delete by org
+
+Smart Detail View: Main refresh on update
+Samrt Detail view: Dont show ID's in table
+Smart Detail View: Scrolling for tables
+
+Smart View search functionality
+
+Smart Add wizard view
+
+Devices
+
+Add contacts to Organisations
+
+Users
+
+Logon

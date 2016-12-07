@@ -1,0 +1,38 @@
+<template name="multiCrudView">
+
+
+    <!-- Page heading -->
+    {{> pageHeading title=header category='Multi View' icon=icon }}
+
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row m-t-lg">
+            <div class="col-lg-12">
+                  <div class="tabs-container">
+                    <div class="tabs-left">
+                      <ul class="nav nav-tabs">
+                        {{#each children}}
+                        <li class="{{isActive collectionId}}"><a class="tab" data-toggle="tab" href="#{{collectionId}}"><i class="fa {{icon}}"></i> {{{displayName}}}</a></li>
+                        {{/each}}
+                      </ul>
+                        <div class="tab-content">
+                          {{#if contentChanged}}{{#each children}}
+                            <div id="{{collectionId}}" class="tab-pane {{isActive collectionId}}">
+                                <div class="panel-body">
+                                  {{> UI.dynamic template=getTemplate data=this}}
+                                </div>
+                            </div>
+                          {{/each}}{{/if}}
+                        </div>
+                      </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal inmodal fade" id="smartEditModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                {{> detailSmartAddEditModal}}
+            </div>
+        </div>
+    </div>
+</template>
