@@ -1,0 +1,27 @@
+{
+  "name": "Fluxator",
+  "version": "0.0.1",
+  "description": "Imacs translate for Sense and Alert data to InfluxDB",
+  "main": "server.js",
+  "dependencies": {
+
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ksstech/Fluxator.git"
+  },
+  "keywords": [
+    "InfluxDB"
+  ],
+  "author": "Marsel Pretorius",
+  "license": "Private",
+  "bugs": {
+    "url": "https://github.com/ksstech/Fluxator/issues"
+  },
+  "homepage": "https://github.com/ksstech/Fluxator"
+}
