@@ -165,3 +165,5 @@ sh WSO2/wso2esb-4.8.1/bin/wso2server.sh stop
 sh WSO2/wso2esb-4.8.1/bin/wso2server.sh restart
 ```
 * Management https://bam01.ushauri.co.za:9444/carbon
+
+20161207: Renamed the repo to reflect the general nature of cloud support for CoAP protocol
